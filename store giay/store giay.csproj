@@ -203,6 +203,9 @@
     <Content Include="Views\GiayStore\Index.cshtml" />
     <Content Include="Views\GiayStore\Loaisanpham.cshtml" />
     <Content Include="Views\GiayStore\Nhanhieu.cshtml" />
+    <Content Include="Views\GiayStore\SPTheoloai.cshtml" />
+    <Content Include="Views\GiayStore\SPTheonhanhieu.cshtml" />
+    <Content Include="Views\GiayStore\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

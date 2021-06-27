@@ -32,5 +32,22 @@ namespace store_giay.Controllers
             var nhanhieu = from nh in data.Nhanhieus select nh;
             return PartialView(nhanhieu);
         }
+        public ActionResult SPTheoloai(int id)
+        {
+            var sanpham = from s in data.Sanphams where s.idLoaisanpham==id select s;
+            return PartialView(sanpham);
+        }
+        public ActionResult SPTheonhanhieu(int id)
+        {
+            var sanpham = from s in data.Sanphams where s.idNhanhieu == id select s;
+            return PartialView(sanpham);
+        }
+        public ActionResult Details(int id)
+        {
+            var sanpham = from s in data.Sanphams
+                       where s.idSanpham == id
+                       select s;
+            return View(sanpham.Single());
+        }
     }
 }
