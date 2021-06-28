@@ -33,9 +33,6 @@ namespace store_giay.Models
     partial void InsertDonhang(Donhang instance);
     partial void UpdateDonhang(Donhang instance);
     partial void DeleteDonhang(Donhang instance);
-    partial void InsertKhachhang(Khachhang instance);
-    partial void UpdateKhachhang(Khachhang instance);
-    partial void DeleteKhachhang(Khachhang instance);
     partial void InsertLoaisanpham(Loaisanpham instance);
     partial void UpdateLoaisanpham(Loaisanpham instance);
     partial void DeleteLoaisanpham(Loaisanpham instance);
@@ -45,6 +42,9 @@ namespace store_giay.Models
     partial void InsertSanpham(Sanpham instance);
     partial void UpdateSanpham(Sanpham instance);
     partial void DeleteSanpham(Sanpham instance);
+    partial void InsertKhachhang(Khachhang instance);
+    partial void UpdateKhachhang(Khachhang instance);
+    partial void DeleteKhachhang(Khachhang instance);
     #endregion
 		
 		public dbStoregiayDataContext() : 
@@ -93,14 +93,6 @@ namespace store_giay.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Khachhang> Khachhangs
-		{
-			get
-			{
-				return this.GetTable<Khachhang>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Loaisanpham> Loaisanphams
 		{
 			get
@@ -122,6 +114,14 @@ namespace store_giay.Models
 			get
 			{
 				return this.GetTable<Sanpham>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Khachhang> Khachhangs
+		{
+			get
+			{
+				return this.GetTable<Khachhang>();
 			}
 		}
 	}
@@ -427,264 +427,6 @@ namespace store_giay.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Khachhang")]
-	public partial class Khachhang : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idKhachhang;
-		
-		private string _tenKhachhang;
-		
-		private System.Nullable<int> _sdtKhachhang;
-		
-		private string _diachiKhachhang;
-		
-		private System.Nullable<System.DateTime> _ngaysinhKhachhang;
-		
-		private string _taikhoanKhachhang;
-		
-		private string _matkhauKhachhang;
-		
-		private string _emailKhachhang;
-		
-		private EntitySet<Donhang> _Donhangs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidKhachhangChanging(int value);
-    partial void OnidKhachhangChanged();
-    partial void OntenKhachhangChanging(string value);
-    partial void OntenKhachhangChanged();
-    partial void OnsdtKhachhangChanging(System.Nullable<int> value);
-    partial void OnsdtKhachhangChanged();
-    partial void OndiachiKhachhangChanging(string value);
-    partial void OndiachiKhachhangChanged();
-    partial void OnngaysinhKhachhangChanging(System.Nullable<System.DateTime> value);
-    partial void OnngaysinhKhachhangChanged();
-    partial void OntaikhoanKhachhangChanging(string value);
-    partial void OntaikhoanKhachhangChanged();
-    partial void OnmatkhauKhachhangChanging(string value);
-    partial void OnmatkhauKhachhangChanged();
-    partial void OnemailKhachhangChanging(string value);
-    partial void OnemailKhachhangChanged();
-    #endregion
-		
-		public Khachhang()
-		{
-			this._Donhangs = new EntitySet<Donhang>(new Action<Donhang>(this.attach_Donhangs), new Action<Donhang>(this.detach_Donhangs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idKhachhang", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idKhachhang
-		{
-			get
-			{
-				return this._idKhachhang;
-			}
-			set
-			{
-				if ((this._idKhachhang != value))
-				{
-					this.OnidKhachhangChanging(value);
-					this.SendPropertyChanging();
-					this._idKhachhang = value;
-					this.SendPropertyChanged("idKhachhang");
-					this.OnidKhachhangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenKhachhang", DbType="NVarChar(500)")]
-		public string tenKhachhang
-		{
-			get
-			{
-				return this._tenKhachhang;
-			}
-			set
-			{
-				if ((this._tenKhachhang != value))
-				{
-					this.OntenKhachhangChanging(value);
-					this.SendPropertyChanging();
-					this._tenKhachhang = value;
-					this.SendPropertyChanged("tenKhachhang");
-					this.OntenKhachhangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sdtKhachhang", DbType="Int")]
-		public System.Nullable<int> sdtKhachhang
-		{
-			get
-			{
-				return this._sdtKhachhang;
-			}
-			set
-			{
-				if ((this._sdtKhachhang != value))
-				{
-					this.OnsdtKhachhangChanging(value);
-					this.SendPropertyChanging();
-					this._sdtKhachhang = value;
-					this.SendPropertyChanged("sdtKhachhang");
-					this.OnsdtKhachhangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diachiKhachhang", DbType="NVarChar(500)")]
-		public string diachiKhachhang
-		{
-			get
-			{
-				return this._diachiKhachhang;
-			}
-			set
-			{
-				if ((this._diachiKhachhang != value))
-				{
-					this.OndiachiKhachhangChanging(value);
-					this.SendPropertyChanging();
-					this._diachiKhachhang = value;
-					this.SendPropertyChanged("diachiKhachhang");
-					this.OndiachiKhachhangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngaysinhKhachhang", DbType="Date")]
-		public System.Nullable<System.DateTime> ngaysinhKhachhang
-		{
-			get
-			{
-				return this._ngaysinhKhachhang;
-			}
-			set
-			{
-				if ((this._ngaysinhKhachhang != value))
-				{
-					this.OnngaysinhKhachhangChanging(value);
-					this.SendPropertyChanging();
-					this._ngaysinhKhachhang = value;
-					this.SendPropertyChanged("ngaysinhKhachhang");
-					this.OnngaysinhKhachhangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_taikhoanKhachhang", DbType="VarChar(50)")]
-		public string taikhoanKhachhang
-		{
-			get
-			{
-				return this._taikhoanKhachhang;
-			}
-			set
-			{
-				if ((this._taikhoanKhachhang != value))
-				{
-					this.OntaikhoanKhachhangChanging(value);
-					this.SendPropertyChanging();
-					this._taikhoanKhachhang = value;
-					this.SendPropertyChanged("taikhoanKhachhang");
-					this.OntaikhoanKhachhangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_matkhauKhachhang", DbType="VarChar(50)")]
-		public string matkhauKhachhang
-		{
-			get
-			{
-				return this._matkhauKhachhang;
-			}
-			set
-			{
-				if ((this._matkhauKhachhang != value))
-				{
-					this.OnmatkhauKhachhangChanging(value);
-					this.SendPropertyChanging();
-					this._matkhauKhachhang = value;
-					this.SendPropertyChanged("matkhauKhachhang");
-					this.OnmatkhauKhachhangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_emailKhachhang", DbType="VarChar(50)")]
-		public string emailKhachhang
-		{
-			get
-			{
-				return this._emailKhachhang;
-			}
-			set
-			{
-				if ((this._emailKhachhang != value))
-				{
-					this.OnemailKhachhangChanging(value);
-					this.SendPropertyChanging();
-					this._emailKhachhang = value;
-					this.SendPropertyChanged("emailKhachhang");
-					this.OnemailKhachhangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Khachhang_Donhang", Storage="_Donhangs", ThisKey="idKhachhang", OtherKey="idKhachhang")]
-		public EntitySet<Donhang> Donhangs
-		{
-			get
-			{
-				return this._Donhangs;
-			}
-			set
-			{
-				this._Donhangs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Donhangs(Donhang entity)
-		{
-			this.SendPropertyChanging();
-			entity.Khachhang = this;
-		}
-		
-		private void detach_Donhangs(Donhang entity)
-		{
-			this.SendPropertyChanging();
-			entity.Khachhang = null;
 		}
 	}
 	
@@ -1249,6 +991,264 @@ namespace store_giay.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Khachhang")]
+	public partial class Khachhang : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idKhachhang;
+		
+		private string _tenKhachhang;
+		
+		private string _sdtKhachhang;
+		
+		private string _diachiKhachhang;
+		
+		private System.Nullable<System.DateTime> _ngaysinhKhachhang;
+		
+		private string _taikhoanKhachhang;
+		
+		private string _matkhauKhachhang;
+		
+		private string _emailKhachhang;
+		
+		private EntitySet<Donhang> _Donhangs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidKhachhangChanging(int value);
+    partial void OnidKhachhangChanged();
+    partial void OntenKhachhangChanging(string value);
+    partial void OntenKhachhangChanged();
+    partial void OnsdtKhachhangChanging(string value);
+    partial void OnsdtKhachhangChanged();
+    partial void OndiachiKhachhangChanging(string value);
+    partial void OndiachiKhachhangChanged();
+    partial void OnngaysinhKhachhangChanging(System.Nullable<System.DateTime> value);
+    partial void OnngaysinhKhachhangChanged();
+    partial void OntaikhoanKhachhangChanging(string value);
+    partial void OntaikhoanKhachhangChanged();
+    partial void OnmatkhauKhachhangChanging(string value);
+    partial void OnmatkhauKhachhangChanged();
+    partial void OnemailKhachhangChanging(string value);
+    partial void OnemailKhachhangChanged();
+    #endregion
+		
+		public Khachhang()
+		{
+			this._Donhangs = new EntitySet<Donhang>(new Action<Donhang>(this.attach_Donhangs), new Action<Donhang>(this.detach_Donhangs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idKhachhang", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idKhachhang
+		{
+			get
+			{
+				return this._idKhachhang;
+			}
+			set
+			{
+				if ((this._idKhachhang != value))
+				{
+					this.OnidKhachhangChanging(value);
+					this.SendPropertyChanging();
+					this._idKhachhang = value;
+					this.SendPropertyChanged("idKhachhang");
+					this.OnidKhachhangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenKhachhang", DbType="NVarChar(500)")]
+		public string tenKhachhang
+		{
+			get
+			{
+				return this._tenKhachhang;
+			}
+			set
+			{
+				if ((this._tenKhachhang != value))
+				{
+					this.OntenKhachhangChanging(value);
+					this.SendPropertyChanging();
+					this._tenKhachhang = value;
+					this.SendPropertyChanged("tenKhachhang");
+					this.OntenKhachhangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sdtKhachhang", DbType="VarChar(50)")]
+		public string sdtKhachhang
+		{
+			get
+			{
+				return this._sdtKhachhang;
+			}
+			set
+			{
+				if ((this._sdtKhachhang != value))
+				{
+					this.OnsdtKhachhangChanging(value);
+					this.SendPropertyChanging();
+					this._sdtKhachhang = value;
+					this.SendPropertyChanged("sdtKhachhang");
+					this.OnsdtKhachhangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diachiKhachhang", DbType="NVarChar(500)")]
+		public string diachiKhachhang
+		{
+			get
+			{
+				return this._diachiKhachhang;
+			}
+			set
+			{
+				if ((this._diachiKhachhang != value))
+				{
+					this.OndiachiKhachhangChanging(value);
+					this.SendPropertyChanging();
+					this._diachiKhachhang = value;
+					this.SendPropertyChanged("diachiKhachhang");
+					this.OndiachiKhachhangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngaysinhKhachhang", DbType="Date")]
+		public System.Nullable<System.DateTime> ngaysinhKhachhang
+		{
+			get
+			{
+				return this._ngaysinhKhachhang;
+			}
+			set
+			{
+				if ((this._ngaysinhKhachhang != value))
+				{
+					this.OnngaysinhKhachhangChanging(value);
+					this.SendPropertyChanging();
+					this._ngaysinhKhachhang = value;
+					this.SendPropertyChanged("ngaysinhKhachhang");
+					this.OnngaysinhKhachhangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_taikhoanKhachhang", DbType="VarChar(50)")]
+		public string taikhoanKhachhang
+		{
+			get
+			{
+				return this._taikhoanKhachhang;
+			}
+			set
+			{
+				if ((this._taikhoanKhachhang != value))
+				{
+					this.OntaikhoanKhachhangChanging(value);
+					this.SendPropertyChanging();
+					this._taikhoanKhachhang = value;
+					this.SendPropertyChanged("taikhoanKhachhang");
+					this.OntaikhoanKhachhangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_matkhauKhachhang", DbType="VarChar(50)")]
+		public string matkhauKhachhang
+		{
+			get
+			{
+				return this._matkhauKhachhang;
+			}
+			set
+			{
+				if ((this._matkhauKhachhang != value))
+				{
+					this.OnmatkhauKhachhangChanging(value);
+					this.SendPropertyChanging();
+					this._matkhauKhachhang = value;
+					this.SendPropertyChanged("matkhauKhachhang");
+					this.OnmatkhauKhachhangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_emailKhachhang", DbType="VarChar(50)")]
+		public string emailKhachhang
+		{
+			get
+			{
+				return this._emailKhachhang;
+			}
+			set
+			{
+				if ((this._emailKhachhang != value))
+				{
+					this.OnemailKhachhangChanging(value);
+					this.SendPropertyChanging();
+					this._emailKhachhang = value;
+					this.SendPropertyChanged("emailKhachhang");
+					this.OnemailKhachhangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Khachhang_Donhang", Storage="_Donhangs", ThisKey="idKhachhang", OtherKey="idKhachhang")]
+		public EntitySet<Donhang> Donhangs
+		{
+			get
+			{
+				return this._Donhangs;
+			}
+			set
+			{
+				this._Donhangs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Donhangs(Donhang entity)
+		{
+			this.SendPropertyChanging();
+			entity.Khachhang = this;
+		}
+		
+		private void detach_Donhangs(Donhang entity)
+		{
+			this.SendPropertyChanging();
+			entity.Khachhang = null;
 		}
 	}
 }
