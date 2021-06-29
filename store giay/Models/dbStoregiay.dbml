@@ -2,8 +2,8 @@
   <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=shopgiay;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="shopgiayConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Chitietdonhang" Member="Chitietdonhangs">
     <Type Name="Chitietdonhang">
-      <Column Name="idDonhang" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idSanpham" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idDonhang" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idSanpham" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Soluong" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="dongia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Association Name="Donhang_Chitietdonhang" Member="Donhang" ThisKey="idDonhang" OtherKey="idDonhang" Type="Donhang" IsForeignKey="true" />
@@ -14,12 +14,25 @@
     <Type Name="Donhang">
       <Column Name="idDonhang" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="idKhachhang" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Ghichu" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="ngayDathang" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="ngayGiaohang" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Tinhtranggiaohang" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Dathanhtoan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Donhang_Chitietdonhang" Member="Chitietdonhangs" ThisKey="idDonhang" OtherKey="idDonhang" Type="Chitietdonhang" />
       <Association Name="Khachhang_Donhang" Member="Khachhang" ThisKey="idKhachhang" OtherKey="idKhachhang" Type="Khachhang" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Khachhang" Member="Khachhangs">
+    <Type Name="Khachhang">
+      <Column Name="idKhachhang" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tenKhachhang" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="sdtKhachhang" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="diachiKhachhang" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ngaysinhKhachhang" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="taikhoanKhachhang" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="matkhauKhachhang" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="emailKhachhang" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Khachhang_Donhang" Member="Donhangs" ThisKey="idKhachhang" OtherKey="idKhachhang" Type="Donhang" />
     </Type>
   </Table>
   <Table Name="dbo.Loaisanpham" Member="Loaisanphams">
@@ -50,19 +63,6 @@
       <Association Name="Sanpham_Chitietdonhang" Member="Chitietdonhangs" ThisKey="idSanpham" OtherKey="idSanpham" Type="Chitietdonhang" />
       <Association Name="Loaisanpham_Sanpham" Member="Loaisanpham" ThisKey="idLoaisanpham" OtherKey="idLoaisanpham" Type="Loaisanpham" IsForeignKey="true" />
       <Association Name="Nhanhieu_Sanpham" Member="Nhanhieu" ThisKey="idNhanhieu" OtherKey="idNhanhieu" Type="Nhanhieu" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Khachhang" Member="Khachhangs">
-    <Type Name="Khachhang">
-      <Column Name="idKhachhang" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="tenKhachhang" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="sdtKhachhang" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="diachiKhachhang" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ngaysinhKhachhang" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="taikhoanKhachhang" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="matkhauKhachhang" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="emailKhachhang" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Khachhang_Donhang" Member="Donhangs" ThisKey="idKhachhang" OtherKey="idKhachhang" Type="Donhang" />
     </Type>
   </Table>
 </Database>

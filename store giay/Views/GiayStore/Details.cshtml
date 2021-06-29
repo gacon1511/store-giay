@@ -35,7 +35,7 @@
     </div>
     <div>
         <div id="Datmua">
-            <a href="@Url.Action("ThemGiohang", "GioHang", new { @iMasach= @Model.idSanpham})" class="list-group-item">
+            <a href="@Url.Action("ThemGiohang", "Giohang", new { @iMaSanpham= @Model.idSanpham, @strURL=Request.Url.ToString()})" class="list-group-item">
                 ĐẶT MUA
             </a>
         </div>
