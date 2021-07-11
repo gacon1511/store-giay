@@ -58,6 +58,16 @@ namespace store_giay.Controllers
             }
             return TongTien;
         }
+        private double TongTienUSD()
+        {
+            double TongTienUSD = 0;
+            List<Giohang> lstGiohang = Session["GioHang"] as List<Giohang>;
+            if (lstGiohang != null)
+            {
+                TongTienUSD = 23000;
+            }
+            return TongTienUSD;
+        }
         public ActionResult GioHang()
         {
             List<Giohang> lstGiohang = Laygiohang();
